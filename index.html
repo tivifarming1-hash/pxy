@@ -3,211 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌐 Real Browser · GitHub Pages Ready</title>
-  <!-- Font Awesome for icons (free) -->
+  <title>🌐 Unblocker Browser · Bypass Organization Blocks</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: #0f111a;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
-      padding: 12px;
-      margin: 0;
-    }
-
-    .browser {
-      width: 100%;
-      max-width: 1400px;
-      height: 92vh;
-      background: #1a1c29;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid #3e4266;
-    }
-
-    /* Toolbar */
-    .toolbar {
-      background: #212433;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #373b58;
-    }
-
-    .nav-group {
-      display: flex;
-      gap: 6px;
-    }
-
-    .nav-btn {
-      background: #2e334b;
-      border: none;
-      color: #e2e6ff;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.15s;
-      border: 1px solid #4e5580;
-    }
-
-    .nav-btn:hover {
-      background: #404880;
-      border-color: #8b9bff;
-    }
-
-    .nav-btn.disabled {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
-    .url-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      background: #0b0e16;
-      border-radius: 40px;
-      padding: 3px 3px 3px 18px;
-      border: 1.5px solid #4d527a;
-    }
-
-    .url-container:focus-within {
-      border-color: #7f95ff;
-      box-shadow: 0 0 0 3px rgba(127, 149, 255, 0.2);
-    }
-
-    .url-icon {
-      color: #a3aee0;
-      margin-right: 10px;
-    }
-
-    #urlInput {
-      width: 100%;
-      background: transparent;
-      border: none;
-      padding: 12px 0;
-      color: #f0f4ff;
-      font-size: 15px;
-      outline: none;
-      font-family: 'SF Mono', 'Fira Code', monospace;
-    }
-
-    #goBtn {
-      background: #3f51b5;
-      border: none;
-      color: white;
-      padding: 9px 22px;
-      margin: 3px;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid #7f95ff;
-    }
-
-    /* Status bar */
-    .status-bar {
-      display: flex;
-      align-items: center;
-      padding: 6px 20px;
-      background: #171b29;
-      color: #b1bbf0;
-      font-size: 13px;
-      border-bottom: 1px solid #2d3147;
-      gap: 16px;
-    }
-
-    .spinner {
-      display: none;
-      width: 16px;
-      height: 16px;
-      border: 2px solid #5f6aa8;
-      border-top: 2px solid #ccd6ff;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0f111a; min-height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Segoe UI', 'Roboto', sans-serif; padding: 12px; margin: 0; }
+    .browser { width: 100%; max-width: 1400px; height: 92vh; background: #1a1c29; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #3e4266; }
+    .toolbar { background: #212433; padding: 12px 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #373b58; }
+    .nav-group { display: flex; gap: 6px; }
+    .nav-btn { background: #2e334b; border: none; color: #e2e6ff; width: 40px; height: 40px; border-radius: 10px; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; border: 1px solid #4e5580; }
+    .nav-btn:hover { background: #404880; border-color: #8b9bff; }
+    .nav-btn.disabled { opacity: 0.4; pointer-events: none; }
+    .url-container { flex: 1; display: flex; align-items: center; background: #0b0e16; border-radius: 40px; padding: 3px 3px 3px 18px; border: 1.5px solid #4d527a; }
+    .url-container:focus-within { border-color: #7f95ff; box-shadow: 0 0 0 3px rgba(127, 149, 255, 0.2); }
+    .url-icon { color: #a3aee0; margin-right: 10px; }
+    #urlInput { width: 100%; background: transparent; border: none; padding: 12px 0; color: #f0f4ff; font-size: 15px; outline: none; font-family: 'SF Mono', 'Fira Code', monospace; }
+    #goBtn { background: #3f51b5; border: none; color: white; padding: 9px 22px; margin: 3px; border-radius: 40px; font-weight: 600; cursor: pointer; border: 1px solid #7f95ff; }
+    .status-bar { display: flex; align-items: center; padding: 6px 20px; background: #171b29; color: #b1bbf0; font-size: 13px; border-bottom: 1px solid #2d3147; gap: 16px; flex-wrap: wrap; }
+    .spinner { display: none; width: 16px; height: 16px; border: 2px solid #5f6aa8; border-top: 2px solid #ccd6ff; border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    #statusMsg {
-      margin-left: 8px;
-    }
-
-    .proxy-note {
-      margin-left: auto;
-      opacity: 0.8;
-    }
-
-    /* Content area */
-    .content-area {
-      flex: 1;
-      background: #fff;
-      position: relative;
-    }
-
-    #browserFrame {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #f5f5f7;
-    }
-
-    .welcome-screen {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #0e111b;
-      color: #ccd6f0;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .welcome-screen i {
-      font-size: 56px;
-      color: #6d8cff;
-      margin-bottom: 20px;
-    }
-
-    /* Footer */
-    .footer {
-      padding: 6px 20px;
-      background: #121624;
-      color: #6b729c;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #2c314a;
-    }
-
-    @media (max-width: 700px) {
-      .toolbar { flex-direction: column; align-items: stretch; }
-      .url-container { width: 100%; }
-    }
+    #statusMsg { margin-left: 8px; }
+    .proxy-selector { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    #proxySelect { background: #2a2f4a; color: #e0e4ff; border: 1px solid #5b6490; border-radius: 20px; padding: 4px 10px; font-size: 12px; outline: none; }
+    #customProxyInput { background: #1e2238; border: 1px solid #5b6490; color: white; padding: 4px 10px; border-radius: 20px; width: 180px; font-size: 12px; display: none; }
+    .content-area { flex: 1; background: #fff; position: relative; }
+    #browserFrame { width: 100%; height: 100%; border: none; background: #f5f5f7; }
+    .welcome-screen { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0e111b; color: #ccd6f0; pointer-events: none; z-index: 5; }
+    .welcome-screen i { font-size: 56px; color: #6d8cff; margin-bottom: 20px; }
+    .footer { padding: 6px 20px; background: #121624; color: #6b729c; font-size: 12px; display: flex; justify-content: space-between; border-top: 1px solid #2c314a; }
+    @media (max-width: 700px) { .toolbar { flex-direction: column; align-items: stretch; } .url-container { width: 100%; } }
   </style>
 </head>
 <body>
 <div class="browser">
-  <!-- Toolbar -->
   <div class="toolbar">
     <div class="nav-group">
       <button class="nav-btn" id="backBtn" title="Back"><i class="fas fa-arrow-left"></i></button>
@@ -222,43 +50,51 @@
     </div>
   </div>
 
-  <!-- Status bar -->
   <div class="status-bar">
     <div style="display: flex; align-items: center;">
       <div class="spinner" id="loadingSpinner"></div>
-      <span id="statusMsg">Ready · deploy on GitHub Pages</span>
+      <span id="statusMsg">Ready · Select proxy below</span>
     </div>
-    <div class="proxy-note">
-      <i class="fas fa-shield-alt"></i> multi‑proxy fallback
+    <div class="proxy-selector">
+      <i class="fas fa-shield-alt"></i>
+      <select id="proxySelect">
+        <option value="0">allorigins.win</option>
+        <option value="1">corsproxy.io</option>
+        <option value="2">codetabs.com</option>
+        <option value="3">cors-anywhere (activate)</option>
+        <option value="4">x2u.in</option>
+        <option value="custom">Custom proxy...</option>
+      </select>
+      <input type="text" id="customProxyInput" placeholder="https://your-proxy.com/?url=">
     </div>
   </div>
 
-  <!-- Content: sandboxed iframe (srcdoc) -->
   <div class="content-area">
     <iframe id="browserFrame" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"></iframe>
     <div class="welcome-screen" id="welcomeScreen">
       <i class="fas fa-compass"></i>
-      <h3>Real Browser (proxy‑based)</h3>
-      <p style="max-width: 420px; margin-top: 8px;">Type a URL above — the page is fetched, rewritten, and displayed here.<br>Click links to keep browsing.</p>
+      <h3>Unblocker Browser</h3>
+      <p style="max-width: 420px; margin-top: 8px;">Enter a blocked URL above — it will be fetched through the selected proxy.<br>Click links to continue browsing.</p>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    <span><i class="far fa-copy"></i> single‑file browser · works on GitHub Pages</span>
+    <span><i class="far fa-copy"></i> Proxy browser · bypasses organization blocks</span>
     <span><i class="fas fa-history"></i> history / navigation</span>
   </div>
 </div>
 
 <script>
   (() => {
-    // ---------- CONFIGURATION ----------
-    // Multiple proxies for reliability
-    const PROXY_LIST = [
-      'https://api.allorigins.win/raw?url=',
-      'https://corsproxy.io/?',
-      'https://api.codetabs.com/v1/proxy?quest='
+    // ---------- PROXY LIST ----------
+    const PROXY_URLS = [
+      'https://api.allorigins.win/raw?url=',           // 0
+      'https://corsproxy.io/?',                        // 1
+      'https://api.codetabs.com/v1/proxy?quest=',      // 2
+      'https://cors-anywhere.herokuapp.com/',          // 3 (needs activation)
+      'https://cors.x2u.in/'                           // 4
     ];
+    
     const HOME_URL = 'https://example.com/';
     
     // DOM elements
@@ -272,13 +108,15 @@
     const loadingSpinner = document.getElementById('loadingSpinner');
     const statusMsg = document.getElementById('statusMsg');
     const welcomeScreen = document.getElementById('welcomeScreen');
+    const proxySelect = document.getElementById('proxySelect');
+    const customProxyInput = document.getElementById('customProxyInput');
 
-    // History management
+    // History
     let historyStack = [];
     let currentIndex = -1;
     const MAX_HISTORY = 40;
 
-    // Helper: update UI state
+    // UI Helpers
     function setLoading(isLoading, message = '') {
       loadingSpinner.style.display = isLoading ? 'inline-block' : 'none';
       statusMsg.textContent = message || (isLoading ? 'Loading...' : 'Ready');
@@ -289,21 +127,33 @@
       forwardBtn.classList.toggle('disabled', currentIndex >= historyStack.length - 1);
     }
 
-    function hideWelcome() {
-      welcomeScreen.style.display = 'none';
+    function hideWelcome() { welcomeScreen.style.display = 'none'; }
+    function showWelcome() { welcomeScreen.style.display = 'flex'; }
+
+    // Show/hide custom proxy input
+    proxySelect.addEventListener('change', () => {
+      customProxyInput.style.display = proxySelect.value === 'custom' ? 'inline-block' : 'none';
+    });
+
+    // Get current proxy URL
+    function getProxyUrl() {
+      const val = proxySelect.value;
+      if (val === 'custom') {
+        let custom = customProxyInput.value.trim();
+        if (!custom) return null;
+        // Ensure it ends with something that can append the encoded URL
+        if (!custom.includes('?') && !custom.endsWith('/')) custom += '/';
+        return custom;
+      }
+      return PROXY_URLS[parseInt(val)];
     }
 
-    function showWelcome() {
-      welcomeScreen.style.display = 'flex';
-    }
-
-    // Format URL: ensure protocol
+    // Format user input
     function formatUrl(input) {
       let trimmed = input.trim();
       if (!trimmed) return '';
       if (trimmed.startsWith('about:')) return trimmed;
       if (!/^https?:\/\//i.test(trimmed)) {
-        // If it looks like a search (no dots), use DuckDuckGo
         if (!trimmed.includes('.') && !trimmed.includes('localhost') && !/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/.test(trimmed)) {
           return `https://duckduckgo.com/?q=${encodeURIComponent(trimmed)}`;
         }
@@ -312,186 +162,110 @@
       return trimmed;
     }
 
-    // Fetch and render a URL using proxy fallback
+    // Fetch and render
     async function loadUrl(url, addToHistory = true) {
       if (!url) return;
-      
       const formatted = formatUrl(url);
       if (!formatted) return;
       
       urlInput.value = formatted;
-      setLoading(true, `Fetching ${formatted}...`);
+      setLoading(true, `Fetching via ${proxySelect.options[proxySelect.selectedIndex].text}...`);
       hideWelcome();
 
-      // Detect file:// protocol and show a helpful message (should not happen on GitHub Pages)
-      if (window.location.protocol === 'file:') {
-        setLoading(false, '⚠️ Running from file:// – please host on a web server (e.g., GitHub Pages).');
-        frame.srcdoc = createErrorPage(formatted, 'CORS blocked: open this page via https:// (GitHub Pages).');
+      const proxyBase = getProxyUrl();
+      if (!proxyBase) {
+        setLoading(false, '❌ No proxy selected or custom proxy empty');
+        frame.srcdoc = createErrorPage(formatted, 'Please select a proxy or enter a valid custom proxy URL.');
         return;
       }
 
-      let html = null;
-      let lastError = null;
-
-      // Try each proxy in order
-      for (const proxy of PROXY_LIST) {
-        try {
-          const proxyUrl = proxy + encodeURIComponent(formatted);
-          const response = await fetch(proxyUrl);
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          html = await response.text();
-          break; // success
-        } catch (e) {
-          lastError = e;
-          continue; // try next proxy
+      try {
+        const proxyUrl = proxyBase + encodeURIComponent(formatted);
+        const response = await fetch(proxyUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        let html = await response.text();
+        html = rewriteHtml(html, formatted);
+        frame.srcdoc = html;
+        setLoading(false, 'Loaded successfully');
+        
+        if (addToHistory) {
+          if (currentIndex < historyStack.length - 1) historyStack = historyStack.slice(0, currentIndex + 1);
+          historyStack.push(formatted);
+          currentIndex = historyStack.length - 1;
+          if (historyStack.length > MAX_HISTORY) { historyStack.shift(); currentIndex--; }
         }
-      }
-
-      if (!html) {
-        setLoading(false, `Failed: ${lastError?.message || 'all proxies down'}`);
-        frame.srcdoc = createErrorPage(formatted, lastError?.message || 'All CORS proxies failed. Try again later.');
-        return;
-      }
-
-      // Rewrite HTML and inject navigation script
-      html = rewriteHtml(html, formatted);
-      frame.srcdoc = html;
-      setLoading(false, 'Loaded');
-
-      // Update history
-      if (addToHistory) {
-        if (currentIndex < historyStack.length - 1) {
-          historyStack = historyStack.slice(0, currentIndex + 1);
+        updateNavButtons();
+      } catch (error) {
+        console.error(error);
+        setLoading(false, `Error: ${error.message}`);
+        frame.srcdoc = createErrorPage(formatted, error.message);
+        if (addToHistory) {
+          if (currentIndex < historyStack.length - 1) historyStack = historyStack.slice(0, currentIndex + 1);
+          historyStack.push(formatted);
+          currentIndex = historyStack.length - 1;
         }
-        historyStack.push(formatted);
-        currentIndex = historyStack.length - 1;
-        if (historyStack.length > MAX_HISTORY) {
-          historyStack.shift();
-          currentIndex--;
-        }
+        updateNavButtons();
       }
-      updateNavButtons();
     }
 
-    // Rewrite links, add base tag, inject click handler
+    // Rewrite HTML: base tag + link interception
     function rewriteHtml(html, baseUrl) {
-      // Escape function for attribute safety
       const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-      
-      // Add <base> tag for relative resources
       const baseTag = `<base href="${esc(baseUrl)}">`;
       
-      // Rewrite <a href="..."> to data-browser-nav
       html = html.replace(/<a\s+([^>]*?)href\s*=\s*["']([^"']+)["']/gi, (match, before, url) => {
         try {
           const absolute = new URL(url, baseUrl).href;
           return `<a ${before}href="#" data-browser-nav="${esc(absolute)}"`;
-        } catch {
-          return match;
-        }
+        } catch { return match; }
       });
       
-      // Disable forms (POST not supported)
       html = html.replace(/<form/gi, '<form data-browser-form="disabled"');
       
-      // Insert base tag
-      if (html.includes('<head>')) {
-        html = html.replace('<head>', `<head>${baseTag}`);
-      } else if (html.includes('<html>')) {
-        html = html.replace('<html>', `<html><head>${baseTag}</head>`);
-      } else {
-        html = baseTag + html;
-      }
+      if (html.includes('<head>')) html = html.replace('<head>', `<head>${baseTag}`);
+      else if (html.includes('<html>')) html = html.replace('<html>', `<html><head>${baseTag}</head>`);
+      else html = baseTag + html;
       
-      // Inject navigation script
       const navScript = `
         <script>
-          (function() {
-            document.addEventListener('click', function(e) {
-              const link = e.target.closest('a[data-browser-nav]');
-              if (link) {
-                e.preventDefault();
-                const url = link.getAttribute('data-browser-nav');
-                if (url) window.parent.postMessage({ type: 'navigate', url: url }, '*');
-              }
-            });
-            document.addEventListener('submit', function(e) {
-              e.preventDefault();
-              alert('Form submission is disabled in this demo browser.');
-            }, true);
-          })();
+          document.addEventListener('click', e => {
+            const a = e.target.closest('a[data-browser-nav]');
+            if (a) { e.preventDefault(); window.parent.postMessage({type:'navigate',url:a.dataset.browserNav},'*'); }
+          });
+          document.addEventListener('submit', e => { e.preventDefault(); alert('Forms are disabled in this demo.'); }, true);
         <\/script>
       `;
       
-      if (html.includes('</body>')) {
-        html = html.replace('</body>', navScript + '</body>');
-      } else {
-        html += navScript;
-      }
-      
-      return html;
+      return html.replace('</body>', navScript + '</body>');
     }
 
-    function createErrorPage(url, errorMsg) {
+    function createErrorPage(url, err) {
       const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-      return `<!DOCTYPE html>
-        <html><head><meta charset="UTF-8"><style>
-          body { background: #1e1e2f; color: #eee; font-family: system-ui; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-          .box { background: #2a2a40; padding: 30px; border-radius: 20px; max-width: 500px; text-align: center; border: 1px solid #ff6b6b; }
-          h2 { color: #ff8a8a; } a { color: #a5b9ff; }
-        </style></head><body>
-          <div class="box">
-            <h2>⚠️ Failed to load</h2>
-            <p><code>${esc(url)}</code></p>
-            <p>${esc(errorMsg)}</p>
-            <p><small>Try a different URL or refresh. Some sites block proxies.</small></p>
-          </div>
-        </body></html>`;
+      return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{background:#1e1e2f;color:#eee;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:system-ui}.box{background:#2a2a40;padding:30px;border-radius:20px;max-width:500px;text-align:center;border:1px solid #ff6b6b}h2{color:#ff8a8a}a{color:#a5b9ff}</style></head><body><div class="box"><h2>⚠️ Failed</h2><code>${esc(url)}</code><p>${esc(err)}</p><p><small>Try a different proxy from the dropdown.</small></p></div></body></html>`;
     }
 
-    // Listen for navigation messages from iframe
-    window.addEventListener('message', (e) => {
-      if (e.data && e.data.type === 'navigate') {
-        const newUrl = e.data.url;
-        if (newUrl) loadUrl(newUrl, true);
-      }
+    // Navigation from iframe
+    window.addEventListener('message', e => {
+      if (e.data?.type === 'navigate') loadUrl(e.data.url, true);
     });
 
-    // UI event handlers
+    // Event listeners
     goBtn.addEventListener('click', () => loadUrl(urlInput.value.trim(), true));
-    urlInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') loadUrl(urlInput.value.trim(), true);
-    });
+    urlInput.addEventListener('keypress', e => { if (e.key === 'Enter') loadUrl(urlInput.value.trim(), true); });
+    backBtn.addEventListener('click', () => { if (currentIndex > 0) { currentIndex--; loadUrl(historyStack[currentIndex], false); } });
+    forwardBtn.addEventListener('click', () => { if (currentIndex < historyStack.length-1) { currentIndex++; loadUrl(historyStack[currentIndex], false); } });
+    refreshBtn.addEventListener('click', () => { if (currentIndex >= 0) loadUrl(historyStack[currentIndex], false); else loadUrl(HOME_URL, true); });
+    homeBtn.addEventListener('click', () => loadUrl(HOME_URL, true));
 
-    backBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        loadUrl(historyStack[currentIndex], false);
+    // Start
+    window.addEventListener('load', () => loadUrl(HOME_URL, true));
+
+    // Warning for cors-anywhere activation
+    proxySelect.addEventListener('change', () => {
+      if (proxySelect.value === '3') {
+        alert('⚠️ cors-anywhere.herokuapp.com requires a one‑time activation.\n\n1. Open https://cors-anywhere.herokuapp.com/ in a new tab.\n2. Click the "Request temporary access" button.\n3. Then come back and try again.');
       }
-    });
-
-    forwardBtn.addEventListener('click', () => {
-      if (currentIndex < historyStack.length - 1) {
-        currentIndex++;
-        loadUrl(historyStack[currentIndex], false);
-      }
-    });
-
-    refreshBtn.addEventListener('click', () => {
-      if (currentIndex >= 0) {
-        loadUrl(historyStack[currentIndex], false);
-      } else {
-        loadUrl(HOME_URL, true);
-      }
-    });
-
-    homeBtn.addEventListener('click', () => {
-      loadUrl(HOME_URL, true);
-    });
-
-    // Start with home page
-    window.addEventListener('load', () => {
-      loadUrl(HOME_URL, true);
     });
   })();
 </script>
