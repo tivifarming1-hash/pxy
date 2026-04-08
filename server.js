@@ -3,15 +3,22 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
-// ENV VARIABLES (set these in Render dashboard)
+// 🔥 FIX 304 CACHE ISSUE
+app.use((req, res, next) => {
+  res.set("Cache-Control", "no-store");
+  next();
+});
+
+// ENV VARIABLES (set in Render)
 const API_KEY = process.env.API_KEY;
 const SERVER_ID = process.env.SERVER_ID;
 const BASE_URL = process.env.BASE_URL;
 
-// Start server
+// 🟢 Start server
 app.post("/start-server", async (req, res) => {
   try {
     await axios.post(
@@ -28,12 +35,13 @@ app.post("/start-server", async (req, res) => {
 
     res.json({ success: true });
   } catch (err) {
-    console.error(err.message);
+    console.error("START ERROR:");
+    console.error(err.response?.data || err.message);
     res.status(500).json({ success: false });
   }
 });
 
-// Get server status
+// 📊 Get status
 app.get("/status", async (req, res) => {
   try {
     const response = await axios.get(
@@ -46,32 +54,25 @@ app.get("/status", async (req, res) => {
       }
     );
 
-    console.log("API RESPONSE:", response.data);
-
     const state = response.data.attributes.current_state;
+
     res.json({ status: state });
 
   } catch (err) {
-    console.error("FULL ERROR:");
-    
-    if (err.response) {
-      console.error(err.response.status);
-      console.error(err.response.data);
-    } else {
-      console.error(err.message);
-    }
+    console.error("STATUS ERROR:");
+    console.error(err.response?.data || err.message);
 
     res.json({ status: "unknown" });
   }
 });
 
-// UI (served at /)
+// 🌐 UI
 app.get("/", (req, res) => {
   res.send(`
 <!DOCTYPE html>
 <html>
 <head>
-<title>Turn ON</title>
+<title>Minecraft Panel</title>
 <style>
 body {
   margin:0;
@@ -88,6 +89,7 @@ body {
   padding:30px;
   border-radius:15px;
   text-align:center;
+  width:280px;
 }
 button {
   padding:10px 20px;
@@ -96,6 +98,7 @@ button {
   border-radius:8px;
   cursor:pointer;
   color:white;
+  font-size:14px;
 }
 .start { background:#22c55e; }
 .refresh { background:#3b82f6; }
@@ -120,10 +123,11 @@ button {
 
 <script>
 async function getStatus() {
-  const res = await fetch("/status");
+  const res = await fetch("/status", { cache: "no-store" });
   const data = await res.json();
 
   document.getElementById("status").innerText = data.status;
+
   const dot = document.getElementById("dot");
 
   if (data.status === "running") dot.style.background = "#22c55e";
