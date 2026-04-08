@@ -46,10 +46,21 @@ app.get("/status", async (req, res) => {
       }
     );
 
+    console.log("API RESPONSE:", response.data);
+
     const state = response.data.attributes.current_state;
     res.json({ status: state });
+
   } catch (err) {
-    console.error(err.message);
+    console.error("FULL ERROR:");
+    
+    if (err.response) {
+      console.error(err.response.status);
+      console.error(err.response.data);
+    } else {
+      console.error(err.message);
+    }
+
     res.json({ status: "unknown" });
   }
 });
